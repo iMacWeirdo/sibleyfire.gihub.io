@@ -327,8 +327,10 @@
 
     <section>
         <div class="container">
-            <h2>Basic Requirements</h2>
+            <h2>Membership Programs</h2>
+            
             <div class="requirements">
+                <h3 style="color: #8B0000; font-size: 1.5rem; margin-bottom: 1rem;">Volunteer Firefighter Requirements</h3>
                 <ul>
                     <li>Must be at least 18 years of age</li>
                     <li>Valid driver's license</li>
@@ -338,8 +340,31 @@
                     <li>Commitment to attend training sessions</li>
                     <li>No experience necessary - we train!</li>
                 </ul>
-                <p style="margin-top: 1rem; font-style: italic;">Specific requirements may vary. Contact us to learn more!</p>
             </div>
+
+            <div class="requirements" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #8B0000;">
+                <h3 style="color: #8B0000; font-size: 1.5rem; margin-bottom: 1rem;">🎓 Cadet Program</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    Our Cadet Program offers high school students the opportunity to start their firefighting journey early! 
+                    Get hands-on experience, training, and mentorship while still in school.
+                </p>
+                <h4 style="color: #333; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Cadet Requirements:</h4>
+                <ul>
+                    <li>Must be a Junior or Senior in high school</li>
+                    <li>Passing all academic classes (not on the failing list)</li>
+                    <li>Valid driver's license</li>
+                    <li>Able to pass a physical examination</li>
+                    <li>Commitment to attend training sessions</li>
+                    <li>Parental consent required</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic; color: #666;">
+                    The Cadet Program is a great way to build skills, serve your community, and prepare for a future in emergency services!
+                </p>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
+                Specific requirements may vary. Contact us to learn more about either program!
+            </p>
         </div>
     </section>
 
@@ -390,9 +415,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="age">Age <span class="required">*</span></label>
+                        <label for="age">Age / Program Interest <span class="required">*</span></label>
                         <select id="age" name="age" required>
                             <option value="">Select...</option>
+                            <option value="Cadet (High School)">Cadet Program (High School Junior/Senior)</option>
                             <option value="18-25">18-25</option>
                             <option value="26-35">26-35</option>
                             <option value="36-45">36-45</option>
@@ -433,7 +459,7 @@
 
     <script>
         // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXdUD0tS0bpdCSa3zqQ-9A8D3KKyARtZrpmtg_YPOa3D08NRjNImVTQ2uofMWDdCaJJQ/exec';
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
         const form = document.getElementById('recruitmentForm');
         const submitBtn = document.getElementById('submitBtn');
