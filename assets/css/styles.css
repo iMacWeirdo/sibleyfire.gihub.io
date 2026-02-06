@@ -523,97 +523,104 @@ button[type="submit"]:hover {
 }
 
 /* Membership Programs Section */
+#membership {
+    padding: 3rem 0;
+}
+
 #membership h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 #membership h3 {
     color: var(--primary-red);
     font-size: 1.8rem;
     margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: left;
 }
 
-#membership > div > ul {
+#membership h4 {
+    color: var(--primary-red);
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* Volunteer Firefighter Requirements Box */
+#membership ul {
     list-style: none;
-    padding: 0;
-    background: var(--white);
     padding: 2rem;
+    background: var(--white);
     border-radius: 8px;
     box-shadow: var(--shadow);
-    margin-bottom: 2rem;
+    margin: 1.5rem 0;
 }
 
-#membership > div > ul li {
+#membership ul li {
     padding: 0.75rem 0 0.75rem 2rem;
     position: relative;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
-#membership > div > ul li:before {
+#membership ul li::before {
     content: "✓";
     position: absolute;
     left: 0;
     color: var(--accent-red);
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    top: 0.7rem;
 }
 
-/* Cadet Program Highlight */
-.cadet-highlight,
+/* Cadet Program Section - Blue Box */
 #membership > div > div {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: var(--white);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 8px;
     margin: 2rem 0;
     box-shadow: var(--shadow);
 }
 
-.cadet-highlight h3,
-#membership h4 {
+#membership > div > div h3 {
     color: var(--white);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    margin-top: 0;
     margin-bottom: 1rem;
-    text-align: left;
 }
 
-.cadet-highlight h4,
-#membership h4 + h4 {
+#membership > div > div h4 {
     color: var(--gold);
+    font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
 }
 
-.cadet-highlight p,
-#membership > div > div > p {
+#membership > div > div p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 1rem;
 }
 
-.cadet-highlight ul,
-#membership > div > div > ul {
-    list-style: none;
+#membership > div > div ul {
+    background: transparent;
+    box-shadow: none;
     padding: 0;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
-.cadet-highlight li,
-#membership > div > div > ul li {
-    padding: 0.5rem 0 0.5rem 1.5rem;
-    position: relative;
+#membership > div > div ul li {
+    padding: 0.6rem 0 0.6rem 2rem;
+    color: var(--white);
 }
 
-.cadet-highlight li:before,
-#membership > div > div > ul li:before {
+#membership > div > div ul li::before {
     content: "✓";
-    position: absolute;
-    left: 0;
     color: var(--gold);
-    font-weight: bold;
+    font-size: 1.3rem;
+    top: 0.5rem;
 }
 
 /* Responsive Design */
