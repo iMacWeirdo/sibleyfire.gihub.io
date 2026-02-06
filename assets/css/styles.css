@@ -1,17 +1,88 @@
-/* CSS Variables for easy theming */
+/* ============================================
+   Sibley Fire Department - Styles
+   Modern, maintainable CSS architecture
+   ============================================ */
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
 :root {
-    --primary-red: #8B0000;
-    --accent-red: #DC143C;
-    --dark-bg: #333;
-    --light-bg: #f9f9f9;
-    --white: #ffffff;
-    --text-dark: #333;
-    --gold: #FFD700;
-    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* Color Palette */
+    --color-primary: #8B0000;
+    --color-primary-light: #DC143C;
+    --color-accent: #FFD700;
+    --color-dark: #333333;
+    --color-light: #f9f9f9;
+    --color-white: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    
+    /* Blue gradient for cadet section */
+    --color-blue-dark: #1e3a8a;
+    --color-blue-light: #3b82f6;
+    
+    /* Alert colors */
+    --color-success-bg: #d4edda;
+    --color-success-text: #155724;
+    --color-success-border: #c3e6cb;
+    --color-error-bg: #f8d7da;
+    --color-error-text: #721c24;
+    --color-error-border: #f5c6cb;
+    
+    /* Spacing Scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Typography Scale */
+    --font-size-sm: 0.9rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 5rem;
+    --font-size-6xl: 8rem;
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.7;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 4px 15px rgba(220, 20, 60, 0.3);
+    
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+    --transition-fast: all 0.2s ease;
+    
+    /* Container Width */
+    --container-max-width: 1200px;
+    
+    /* Z-index Scale */
+    --z-sticky-nav: 100;
 }
 
-/* Reset and Base Styles */
-* {
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,66 +90,83 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+
+/* ============================================
+   Typography
+   ============================================ */
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: var(--font-size-3xl);
 }
 
 h2 {
-    font-size: 2rem;
-    color: var(--primary-red);
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-lg);
 }
 
 h3 {
-    font-size: 1.5rem;
-    color: var(--primary-red);
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+}
+
+h4 {
+    font-size: var(--font-size-md);
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
 }
 
-/* Container */
+
+/* ============================================
+   Layout Components
+   ============================================ */
 .container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--space-md);
 }
 
-/* Header Styles */
+
+/* ============================================
+   Header
+   ============================================ */
 header {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-red) 100%);
-    color: var(--white);
-    padding: 2rem 0;
-    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+    padding: var(--space-xl) 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--space-xl);
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
@@ -91,22 +179,25 @@ header {
 }
 
 header h1 {
-    margin-bottom: 0.5rem;
-    color: var(--white);
+    margin-bottom: var(--space-sm);
+    color: var(--color-white);
 }
 
 .tagline {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     opacity: 0.95;
 }
 
-/* Navigation Styles */
+
+/* ============================================
+   Navigation
+   ============================================ */
 nav {
-    background: var(--dark-bg);
+    background: var(--color-dark);
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
+    z-index: var(--z-sticky-nav);
+    box-shadow: var(--shadow-sm);
 }
 
 nav ul {
@@ -122,284 +213,305 @@ nav li {
 }
 
 nav a {
-    color: var(--white);
-    padding: 1rem 1.5rem;
+    color: var(--color-white);
+    padding: var(--space-md) var(--space-lg);
     display: block;
-    transition: background 0.3s ease;
+    transition: var(--transition-base);
     border-bottom: 3px solid transparent;
+    font-weight: 500;
 }
 
 nav a:hover,
 nav a:focus {
-    background: var(--primary-red);
-    border-bottom-color: var(--gold);
+    background: var(--color-primary);
+    border-bottom-color: var(--color-accent);
+    outline: none;
 }
 
-/* Section Styles */
+
+/* ============================================
+   Sections
+   ============================================ */
 section {
-    padding: 3rem 0;
+    padding: var(--space-2xl) 0;
 }
 
 section:nth-child(even) {
-    background: var(--light-bg);
+    background: var(--color-light);
 }
 
-/* Hero Section */
+
+/* ============================================
+   Hero Sections
+   ============================================ */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--dark-bg);
-    color: var(--white);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--color-dark);
+    color: var(--color-white);
     text-align: center;
-    padding: 4rem 0;
+    padding: var(--space-3xl) 0;
 }
 
 .hero h2 {
-    color: var(--white);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    color: var(--color-white);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-md);
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: var(--font-size-lg);
     max-width: 700px;
     margin: 0 auto;
 }
 
-/* Emergency Box */
-.emergency-box {
-    background: var(--accent-red);
-    color: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
+.recruitment-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
     text-align: center;
-    margin: 2rem 0;
-    box-shadow: var(--shadow);
+    padding: var(--space-3xl) 0;
+}
+
+.recruitment-hero h2 {
+    color: var(--color-white);
+    font-size: var(--font-size-3xl);
+}
+
+.recruitment-hero p {
+    font-size: var(--font-size-lg);
+    max-width: 700px;
+    margin: var(--space-md) auto;
+}
+
+
+/* ============================================
+   Emergency Contact Box
+   ============================================ */
+.emergency-box {
+    background: var(--color-primary-light);
+    color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin: var(--space-xl) 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .emergency-box h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--white);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-white);
 }
 
 .emergency-box .phone {
-    font-size: 3rem;
+    font-size: var(--font-size-4xl);
     font-weight: bold;
-    margin: 1rem 0;
+    margin: var(--space-md) 0;
     letter-spacing: 0.1em;
 }
 
-/* Services Grid */
-.services-grid {
+
+/* ============================================
+   Card Grids
+   ============================================ */
+.services-grid,
+.benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
 }
 
-.service-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+.service-card,
+.benefit-card {
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition-base);
 }
 
-.service-card:hover {
+.service-card:hover,
+.benefit-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-md);
 }
 
-.service-card h3 {
-    color: var(--primary-red);
-    margin-bottom: 1rem;
+.service-card h3,
+.benefit-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
 }
 
-.service-card p {
+.benefit-card h3 {
+    font-size: 1.3rem;
+}
+
+.service-card p,
+.benefit-card p {
     margin-bottom: 0;
 }
 
-/* Stats Section */
+
+/* ============================================
+   Statistics Section
+   ============================================ */
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: var(--space-xl);
     text-align: center;
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
 }
 
 .stat-box {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .stat-number {
-    font-size: 3rem;
-    color: var(--accent-red);
+    font-size: var(--font-size-4xl);
+    color: var(--color-primary-light);
     font-weight: bold;
     line-height: 1;
 }
 
-/* Contact Info */
+
+/* ============================================
+   Contact Information
+   ============================================ */
 .contact-info {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    margin-top: 2rem;
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--space-xl);
 }
 
 .contact-info p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
+    margin: var(--space-sm) 0;
+    font-size: var(--font-size-md);
 }
 
-/* Footer Styles */
+
+/* ============================================
+   Footer
+   ============================================ */
 footer {
-    background: var(--dark-bg);
-    color: var(--white);
+    background: var(--color-dark);
+    color: var(--color-white);
     text-align: center;
-    padding: 2rem 0;
+    padding: var(--space-xl) 0;
     margin-top: 0;
 }
 
 footer p {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
 }
 
-/* 404 Page Styles */
+
+/* ============================================
+   404 Error Page
+   ============================================ */
 .error-page {
     min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 0;
+    padding: var(--space-3xl) 0;
 }
 
 .error-content h1 {
-    font-size: 8rem;
-    color: var(--accent-red);
+    font-size: var(--font-size-6xl);
+    color: var(--color-primary-light);
     margin-bottom: 0;
     line-height: 1;
 }
 
 .error-content h2 {
-    font-size: 2rem;
-    margin-top: 1rem;
+    font-size: var(--font-size-2xl);
+    margin-top: var(--space-md);
 }
 
 .error-content p {
-    font-size: 1.2rem;
-    margin: 1.5rem 0;
+    font-size: var(--font-size-lg);
+    margin: var(--space-lg) 0;
     max-width: 600px;
 }
 
 .error-buttons {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-md);
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
 }
 
+
+/* ============================================
+   Buttons
+   ============================================ */
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--accent-red);
-    color: var(--white);
-    border-radius: 5px;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-primary-light);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
     font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid var(--accent-red);
+    transition: var(--transition-base);
+    border: 2px solid var(--color-primary-light);
+    cursor: pointer;
+    text-align: center;
 }
 
-.btn:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
+.btn:hover,
+.btn:focus {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    box-shadow: var(--shadow-lg);
+    outline: none;
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--accent-red);
+    color: var(--color-primary-light);
 }
 
-.btn-outline:hover {
-    background: var(--accent-red);
-    color: var(--white);
+.btn-outline:hover,
+.btn-outline:focus {
+    background: var(--color-primary-light);
+    color: var(--color-white);
 }
 
-/* Recruitment Page Styles */
-.recruitment-hero {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-red) 100%);
-    color: var(--white);
-    text-align: center;
-    padding: 4rem 0;
-}
 
-.recruitment-hero h2 {
-    color: var(--white);
-    font-size: 2.5rem;
-}
-
-.recruitment-hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 1rem auto;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.benefit-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.benefit-card:hover {
-    transform: translateY(-5px);
-}
-
-.benefit-card h3 {
-    color: var(--primary-red);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
+/* ============================================
+   Recruitment Requirements
+   ============================================ */
 .requirements {
-    background: var(--light-bg);
-    padding: 3rem 0;
+    background: var(--color-light);
+    padding: var(--space-2xl) 0;
 }
 
 .requirements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
 }
 
 .requirement-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .requirement-card h3 {
-    color: var(--primary-red);
-    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
     text-align: center;
 }
 
@@ -409,37 +521,40 @@ footer p {
 }
 
 .requirement-card li {
-    padding: 0.5rem 0 0.5rem 1.5rem;
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
     position: relative;
 }
 
-.requirement-card li:before {
+.requirement-card li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--accent-red);
+    color: var(--color-primary-light);
     font-weight: bold;
 }
 
-/* Form Styles */
+
+/* ============================================
+   Form Styles
+   ============================================ */
 .application-form {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    background: var(--color-white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     max-width: 800px;
-    margin: 2rem auto;
+    margin: var(--space-xl) auto;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-lg);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
     font-weight: bold;
-    color: var(--text-dark);
+    color: var(--color-text);
 }
 
 .form-group input,
@@ -447,18 +562,19 @@ footer p {
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    border: 2px solid #dddddd;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-red);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
 }
 
 .form-group textarea {
@@ -468,247 +584,253 @@ footer p {
 
 .form-group small {
     display: block;
-    margin-top: 0.25rem;
-    color: #666;
-    font-size: 0.9rem;
+    margin-top: var(--space-xs);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: var(--space-md);
 }
 
 button[type="submit"] {
-    background: var(--accent-red);
-    color: var(--white);
-    padding: 1rem 3rem;
+    background: var(--color-primary-light);
+    color: var(--color-white);
+    padding: var(--space-md) var(--space-2xl);
     border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-md);
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     width: 100%;
 }
 
-button[type="submit"]:hover {
-    background: var(--primary-red);
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+    background: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    box-shadow: var(--shadow-lg);
+    outline: none;
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
 }
 
 .required {
-    color: var(--accent-red);
+    color: var(--color-primary-light);
 }
 
+
+/* ============================================
+   Form Messages
+   ============================================ */
 .success-message,
 .error-message {
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg);
     display: none;
 }
 
 .success-message {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+    border: 1px solid var(--color-success-border);
 }
 
 .error-message {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background: var(--color-error-bg);
+    color: var(--color-error-text);
+    border: 1px solid var(--color-error-border);
 }
 
-/* Membership Programs Section */
+
+/* ============================================
+   Membership Programs Section
+   ============================================ */
 #membership {
-    padding: 3rem 0;
+    padding: var(--space-2xl) 0;
 }
 
 #membership h2 {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-xl);
 }
 
 #membership h3 {
-    color: var(--primary-red);
+    color: var(--color-primary);
     font-size: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
     text-align: left;
 }
 
 #membership h4 {
-    color: var(--primary-red);
+    color: var(--color-primary);
     font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
     text-align: left;
 }
 
-/* Volunteer Firefighter Requirements Box */
+/* Volunteer Firefighter Requirements List */
 #membership ul {
     list-style: none;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    margin: 1.5rem 0;
+    padding: var(--space-xl);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-lg) 0;
 }
 
 #membership ul li {
-    padding: 0.75rem 0 0.75rem 2rem;
+    padding: 0.75rem 0 0.75rem var(--space-xl);
     position: relative;
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: var(--line-height-base);
 }
 
 #membership ul li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--accent-red);
+    color: var(--color-primary-light);
     font-weight: bold;
     font-size: 1.3rem;
     top: 0.7rem;
 }
 
-/* Cadet Program Section - Blue Box */
+
+/* ============================================
+   Cadet Program Section (Blue Box)
+   ============================================ */
 #membership > div > div {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--color-blue-dark) 0%, var(--color-blue-light) 100%);
+    color: var(--color-white);
     padding: 2.5rem;
-    border-radius: 8px;
-    margin: 2rem 0;
-    box-shadow: var(--shadow);
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+    box-shadow: var(--shadow-sm);
 }
 
 #membership > div > div h3 {
-    color: var(--white);
+    color: var(--color-white);
     font-size: 1.8rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
 }
 
 #membership > div > div h4 {
-    color: var(--gold);
+    color: var(--color-accent);
     font-size: 1.3rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
 }
 
 #membership > div > div p {
     font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-md);
 }
 
 #membership > div > div ul {
     background: transparent;
     box-shadow: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: var(--space-md) 0;
 }
 
 #membership > div > div ul li {
-    padding: 0.6rem 0 0.6rem 2rem;
-    color: var(--white);
+    padding: 0.6rem 0 0.6rem var(--space-xl);
+    color: var(--color-white);
 }
 
 #membership > div > div ul li::before {
     content: "✓";
-    color: var(--gold);
+    color: var(--color-accent);
     font-size: 1.3rem;
     top: 0.5rem;
 }
 
-/* Responsive Design */
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet (768px and below) */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+    :root {
+        --font-size-3xl: 2rem;
+        --font-size-2xl: 1.75rem;
+        --font-size-4xl: 2.5rem;
+        --font-size-5xl: 5rem;
     }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    .hero h2,
-    .recruitment-hero h2 {
-        font-size: 2rem;
-    }
-
+    
     nav a {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.8rem var(--space-md);
+        font-size: var(--font-size-sm);
     }
-
-    .emergency-box .phone {
-        font-size: 2.5rem;
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-    }
-
-    .error-content h1 {
-        font-size: 5rem;
-    }
-
+    
     .form-row {
         grid-template-columns: 1fr;
     }
-
+    
     .application-form {
-        padding: 2rem 1.5rem;
+        padding: var(--space-xl) var(--space-lg);
     }
-
+    
     .benefits-grid,
     .requirements-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .emblem {
         width: 100px;
         height: 100px;
     }
 }
 
+/* Mobile (480px and below) */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
     }
-
+    
     section {
-        padding: 2rem 0;
+        padding: var(--space-xl) 0;
     }
-
+    
     .hero,
     .recruitment-hero {
-        padding: 3rem 0;
+        padding: var(--space-2xl) 0;
     }
-
+    
     .emergency-box {
-        padding: 1.5rem;
+        padding: var(--space-lg);
     }
-
+    
     .service-card,
     .benefit-card,
     .requirement-card {
-        padding: 1.5rem;
+        padding: var(--space-lg);
     }
-
+    
     .error-buttons {
         flex-direction: column;
     }
-
+    
     .btn {
         width: 100%;
-        text-align: center;
     }
 }
 
-/* Print Styles */
+
+/* ============================================
+   Print Styles
+   ============================================ */
 @media print {
     nav,
     .emergency-box,
@@ -716,12 +838,64 @@ button[type="submit"]:hover {
     button {
         display: none;
     }
-
+    
     body {
-        color: #000;
+        color: #000000;
     }
-
+    
     section {
         page-break-inside: avoid;
     }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    .hero,
+    .recruitment-hero {
+        background: none;
+        color: #000000;
+    }
+    
+    .hero h2,
+    .recruitment-hero h2 {
+        color: #000000;
+    }
+}
+
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link (if implemented) */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: var(--space-md);
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: var(--space-md);
+    top: var(--space-md);
 }
