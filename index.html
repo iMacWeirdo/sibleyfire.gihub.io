@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Team - Sibley Volunteer Fire Department</title>
+    <title>Sibley Volunteer Fire Department - Sibley, Iowa</title>
     <style>
         * {
             margin: 0;
@@ -38,6 +38,11 @@
             flex-wrap: wrap;
             justify-content: center;
             text-align: center;
+        }
+
+        .emblem {
+            width: 120px;
+            height: 120px;
         }
 
         h1 {
@@ -110,14 +115,34 @@
             margin: 0 auto;
         }
 
-        .benefits-grid {
+        .emergency-box {
+            background: #DC143C;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .emergency-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-box .phone {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .benefit-card {
+        .service-card {
             background: white;
             padding: 2rem;
             border-radius: 8px;
@@ -126,129 +151,47 @@
             transition: transform 0.3s;
         }
 
-        .benefit-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
         }
 
-        .benefit-card h3 {
+        .service-card h3 {
             color: #8B0000;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
-        .requirements {
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
             background: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 2rem auto;
         }
 
-        .requirements ul {
-            list-style-position: inside;
-            margin-top: 1rem;
+        .stat-number {
+            font-size: 3rem;
+            color: #DC143C;
+            font-weight: bold;
         }
 
-        .requirements li {
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
             margin: 0.5rem 0;
             font-size: 1.1rem;
-        }
-
-        .form-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 700px;
-            margin: 2rem auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #8B0000;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .required {
-            color: #DC143C;
-        }
-
-        .submit-btn {
-            background: #DC143C;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #8B0000;
-            transform: translateY(-2px);
-        }
-
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .success-message,
-        .error-message {
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
         }
 
         footer {
@@ -288,167 +231,133 @@
 
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#safety">Safety Tips</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#safety">Safety Tips</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="container">
-            <h2>Join Our Team</h2>
-            <p>Make a difference in your community. Become a volunteer firefighter and help protect the lives and property of your neighbors.</p>
+            <h2>Protecting Our Community Since 1895</h2>
+            <p>The Sibley Volunteer Fire Department is dedicated to protecting lives, property, and the environment through fire suppression, rescue operations, emergency medical services, and community education.</p>
         </div>
     </section>
-
-    <section>
+    <section id="emergency">
         <div class="container">
-            <h2>Why Volunteer?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Paid Training</h3>
-                    <p>Receive comprehensive firefighting and emergency medical training while getting paid to do so.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Serve Your Community</h3>
-                    <p>Make a real difference by protecting your neighbors and their property.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Build Skills</h3>
-                    <p>Develop leadership, teamwork, and technical skills that last a lifetime.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Join a Brotherhood</h3>
-                    <p>Become part of a tight-knit team dedicated to service and excellence.</p>
-                </div>
+            <div class="emergency-box">
+                <h3>EMERGENCY</h3>
+                <div class="phone">911</div>
+                <p>For all fire, medical, and rescue emergencies, always dial 911</p>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h2>Membership Programs</h2>
             
-            <div class="requirements">
-                <h3 style="color: #8B0000; font-size: 1.5rem; margin-bottom: 1rem;">Volunteer Firefighter Requirements</h3>
-                <ul>
-                    <li>Must be at least 18 years of age</li>
-                    <li>Valid driver's license</li>
-                    <li>Pass a background check</li>
-                    <li>Able to pass a physical examination</li>
-                    <li>Live within reasonable response distance</li>
-                    <li>Commitment to attend training sessions</li>
-                    <li>No experience necessary - we train!</li>
-                </ul>
+            <div style="background: #8B0000; color: white; padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;"> Join Our Team!</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Become a volunteer firefighter and serve your community</p>
+                <a href="./recruitment/" style="display: inline-block; background: white; color: #8B0000; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s;">
+                    Learn More About Recruitment →
+                </a>
             </div>
-
-            <div class="requirements" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #8B0000;">
-                <h3 style="color: #8B0000; font-size: 1.5rem; margin-bottom: 1rem;">Cadet Program</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                    Our Cadet Program offers high school students the opportunity to start their firefighting journey early! 
-                    Get hands-on experience, training, and mentorship while still in school.
-                </p>
-                <h4 style="color: #333; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Cadet Requirements:</h4>
-                <ul>
-                    <li>Must be a Junior or Senior in high school</li>
-                    <li>Passing all academic classes (not on the failing list)</li>
-                    <li>Valid driver's license</li>
-                    <li>Able to pass a physical examination</li>
-                    <li>Commitment to attend training sessions</li>
-                    <li>Parental consent required</li>
-                </ul>
-                <p style="margin-top: 1rem; font-style: italic; color: #666;">
-                    The Cadet Program is a great way to build skills, serve your community, and prepare for a future in emergency services!
-                </p>
-            </div>
-
-            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
-                Specific requirements may vary. Contact us to learn more about either program!
-            </p>
         </div>
     </section>
-
-    <section>
+    <section id="about">
         <div class="container">
-            <h2>Express Your Interest</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Fill out the form below and we'll get in touch with you to discuss the next steps in joining our team.
+            <h2>About Us</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+                The Sibley Volunteer Fire Department proudly serves the City of Sibley and the surrounding rural areas. 
+                Our dedicated team of volunteer firefighters responds to fire calls, motor vehicle accidents, 
+                hazardous material incidents, and other emergencies 24 hours a day, 7 days a week. We are 
+                committed to excellence in emergency response and community service. Visit our USFireDepartment page <a href="https://usfiredept.com/sibley-vfd-21001.html">here</a>.
             </p>
             
-            <div class="form-container">
-                <div id="successMessage" class="success-message">
-                    Thank you for your interest! We'll contact you soon.
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">7</div>
+                    <p>Apparatuses</p>
                 </div>
-                <div id="errorMessage" class="error-message">
-                    There was an error submitting the form. Please try again or contact us directly.
+                <div class="stat-box">
+                    <div class="stat-number">24/7</div>
+                    <p>Emergency Response</p>
                 </div>
-                
-                <form id="recruitmentForm">
-                    <div class="form-group">
-                        <label for="firstName">First Name <span class="required">*</span></label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <p>Dedication</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label for="lastName">Last Name <span class="required">*</span></label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Fire Suppression</h3>
+                    <p>Rapid response to structure fires, vehicle fires, and outdoor fires with state-of-the-art equipment and training.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Emergency Medical</h3>
+                    <p>First responder medical assistance for medical emergencies until ambulance arrival.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Vehicle Rescue</h3>
+                    <p>Specialized training and equipment for vehicle extrication and accident response.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Hazmat Response</h3>
+                    <p>Hazardous materials response and containment to protect the community and environment.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fire Prevention</h3>
+                    <p>Community education, fire safety inspections, and prevention programs for all ages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+    <section id="safety">
+        <div class="container">
+            <h2>Fire Safety Tips</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="service-card" style="text-align: left; margin-bottom: 1rem;">
+                    <h3>Smoke Alarms Save Lives</h3>
+                    <p>• Install smoke alarms on every level of your home and inside bedrooms<br>
+                       • Test alarms monthly and replace batteries yearly<br>
+                       • Replace smoke alarms every 10 years</p>
+                </div>
+                <div class="service-card" style="text-align: left; margin-bottom: 1rem;">
+                    <h3>Create a Fire Escape Plan</h3>
+                    <p>• Plan two ways out of every room<br>
+                       • Choose a meeting place outside<br>
+                       • Practice your escape plan twice a year</p>
+                </div>
+                <div class="service-card" style="text-align: left;">
+                    <h3>Kitchen Safety</h3>
+                    <p>• Never leave cooking unattended<br>
+                       • Keep flammable items away from the stove<br>
+                       • Have a fire extinguisher readily accessible</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Street Address</label>
-                        <input type="text" id="address" name="address">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" name="city">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="age">Age / Program Interest <span class="required">*</span></label>
-                        <p>Note: If applying to be a cadet, regardless of age, choose "Cadet Program..."</p>
-                        <select id="age" name="age" required>
-                            <option value="">Select...</option>
-                            <option value="Cadet (High School)">Cadet Program (High School Junior/Senior)</option>
-                            <option value="18-25">18-25</option>
-                            <option value="26-35">26-35</option>
-                            <option value="36-45">36-45</option>
-                            <option value="46-55">46-55</option>
-                            <option value="56+">56+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="experience">Previous Fire/EMS Experience</label>
-                        <select id="experience" name="experience">
-                            <option value="">Select...</option>
-                            <option value="none">No Experience</option>
-                            <option value="some">Some Training</option>
-                            <option value="certified">Certified Firefighter</option>
-                            <option value="emt">EMT/Paramedic</option>
-                            <option value="other">Other Emergency Services</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Why do you want to join? Tell us about yourself:</label>
-                        <textarea id="message" name="message"></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
-                </form>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>Non-Emergency:</strong> (712) 754-2541</p>
+                <p><strong>Address:</strong> 808 3rd Ave, Sibley, IA 51249</p>
+                <p><strong>Email:</strong> info@sibleyfire.org</p>
+                <p><strong>Chief:</strong> Ken Huls</p>
+                <p style="margin-top: 1rem; font-style: italic;">Emergency services available 24/7 &#64 <strong>911</strong></p>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <h3 style="color: #8B0000; margin-bottom: 1rem;">Interested in Joining?</h3>
+                <p style="font-size: 1.1rem;">We're always looking for dedicated individuals to join our volunteer fire department. 
+                   No experience necessary - we provide comprehensive training!</p>
             </div>
         </div>
     </section>
@@ -459,53 +368,5 @@
             <p style="margin-top: 0.5rem;">Proudly Serving Sibley, Iowa and Surrounding Communities</p>
         </div>
     </footer>
-
-    <script>
-        // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6Pgf3aVTWi8xZ3hjN1ANC8sOsjr4oPOWrK6Y6pWY7gvHHrybSiYIyNVS6-1k0-ww8fw/exec';
-
-        const form = document.getElementById('recruitmentForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Hide any previous messages
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            
-            // Disable submit button
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            
-            // Gather form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(data)
-                });
-                
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (error) {
-                errorMessage.style.display = 'block';
-                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Application';
-            }
-        });
-    </script>
 </body>
 </html>
