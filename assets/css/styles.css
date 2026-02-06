@@ -522,25 +522,98 @@ button[type="submit"]:hover {
     border: 1px solid #f5c6cb;
 }
 
+/* Membership Programs Section */
+#membership h2 {
+    margin-bottom: 3rem;
+}
+
+#membership h3 {
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#membership > div > ul {
+    list-style: none;
+    padding: 0;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+#membership > div > ul li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+#membership > div > ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 /* Cadet Program Highlight */
-.cadet-highlight {
+.cadet-highlight,
+#membership > div > div {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: var(--white);
     padding: 2rem;
     border-radius: 8px;
     margin: 2rem 0;
+    box-shadow: var(--shadow);
 }
 
-.cadet-highlight h3 {
+.cadet-highlight h3,
+#membership h4 {
     color: var(--white);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.cadet-highlight h4,
+#membership h4 + h4 {
+    color: var(--gold);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.cadet-highlight p,
+#membership > div > div > p {
+    font-size: 1.05rem;
+    line-height: 1.7;
     margin-bottom: 1rem;
 }
 
-.cadet-highlight h4 {
+.cadet-highlight ul,
+#membership > div > div > ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.cadet-highlight li,
+#membership > div > div > ul li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+}
+
+.cadet-highlight li:before,
+#membership > div > div > ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
     color: var(--gold);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 /* Responsive Design */
