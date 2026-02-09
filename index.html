@@ -115,6 +115,101 @@
             margin: 0 auto;
         }
 
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .slide-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 1rem 1.5rem;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(139,0,0,0.8);
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .dots-container {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: #8B0000;
+        }
+
         .emergency-box {
             background: #DC143C;
             color: white;
@@ -214,6 +309,19 @@
                 padding: 0.8rem 1rem;
                 font-size: 0.9rem;
             }
+
+            .slide img {
+                height: 300px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.2rem;
+            }
+
+            .prev, .next {
+                padding: 0.5rem 1rem;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -245,6 +353,35 @@
             <p>The Sibley Volunteer Fire Department is dedicated to protecting lives, property, and the environment through fire suppression, rescue operations, emergency medical services, and community education.</p>
         </div>
     </section>
+
+    <!-- Image Slideshow -->
+    <section style="background: #f9f9f9;">
+        <div class="container">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="/assets/95.jpg" alt="Fire Truck">
+                </div>
+
+                <div class="slide">
+                    <img src="/assets/station.jpg" alt="Training Exercise">
+                </div>
+
+                <div class="slide">
+                    <img src="/assets/gear.jpg" alt="Community Event">
+                </div>
+
+                <button class="prev" onclick="changeSlide(-1)">❮</button>
+                <button class="next" onclick="changeSlide(1)">❯</button>
+            </div>
+
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
     <section id="emergency">
         <div class="container">
             <div class="emergency-box">
@@ -349,7 +486,7 @@
             <div class="contact-info">
                 <p><strong>Non-Emergency:</strong> (712) 754-2541</p>
                 <p><strong>Address:</strong> 808 3rd Ave, Sibley, IA 51249</p>
-                <p><strong>Email:</strong> info@sibleyfire.org</p>
+                <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0a9aea6af80b3a9a2aca5b9a6a9b2a5eeafb2a7">[email&#160;protected]</a></p>
                 <p><strong>Chief:</strong> Ken Huls</p>
                 <p style="margin-top: 1rem; font-style: italic;">Emergency services available 24/7 &#64 <strong>911</strong></p>
             </div>
@@ -368,5 +505,53 @@
             <p style="margin-top: 0.5rem;">Proudly Serving Sibley, Iowa and Surrounding Communities</p>
         </div>
     </footer>
+
+    <script>
+        let slideIndex = 1;
+        let autoSlideTimer;
+
+        // Initialize slideshow
+        showSlides(slideIndex);
+        startAutoSlide();
+
+        function changeSlide(n) {
+            clearTimeout(autoSlideTimer);
+            showSlides(slideIndex += n);
+            startAutoSlide();
+        }
+
+        function currentSlide(n) {
+            clearTimeout(autoSlideTimer);
+            showSlides(slideIndex = n);
+            startAutoSlide();
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+
+        function startAutoSlide() {
+            autoSlideTimer = setTimeout(function() {
+                slideIndex++;
+                showSlides(slideIndex);
+                startAutoSlide();
+            }, 5000); // Change slide every 5 seconds
+        }
+    </script>
+
 </body>
 </html>
